@@ -1,1 +1,40 @@
-code here
+<?xml version="1.0" encoding="UTF-8">
+<vxml version="2.1" xmlns="http://ww.w3.org/2001/vxml"
+  xmlns:voxeo="http://community.voxeo.com/xmlns/vxml">
+
+<form id="mainMenu">
+  <field name="askedName">
+    <prompt> Please say your name. </prompt>
+
+    <grammar xml:lang="en-us" root = "myrule">
+      <rule id="myrule">
+         <one-of>
+          <item> Daniel </item>
+        </one-of>
+      </rule>
+    </grammar>
+
+    <noinput count="5">
+      I did not hear anything.
+      <reprompt/>
+    </noinput>
+
+    <nomatch count="5">
+      Incorrect name.
+      <reprompt/>
+    </nomatch>
+
+  </field>
+
+  <filled name="responseName">
+
+    <if cond = "askedName = 'Daniel'">
+      <prompt> Your name is Daniel Osakue. </prompt>
+    <else>
+      <reprompt/>
+    </if>
+
+  </filled>
+
+</form>
+</vxml>
