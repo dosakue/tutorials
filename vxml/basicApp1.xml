@@ -19,12 +19,14 @@
     </grammar>
 
     <noinput count="5">
-      I did not hear anything.
+      <prompt>I did not hear anything.</prompt>
       <reprompt/>
     </noinput>
 
     <nomatch count="5">
-      Incorrect name.
+      <promopt>
+        Incorrect name.
+      </promopt>
       <reprompt/>
     </nomatch>
 
