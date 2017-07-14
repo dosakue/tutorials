@@ -18,7 +18,7 @@
       </rule>
     </grammar>
 
-    <catch event="noinput" count="5">
+    <catch event="nomatch" count="5">
       <prompt>I did not hear anything.</prompt>
       <reprompt/>
     </catch>
@@ -28,17 +28,18 @@
       <reprompt/>
     </catch>
 
+      <filled name="responseName">
+
+        <if cond = "askedName == 'Daniel'">
+          <prompt> Your name is Daniel Osakue. </prompt>
+        <else/>
+          <reprompt/>
+        </if>
+
+      </filled>
+      
   </field>
 
-  <filled name="responseName">
-
-    <if cond = "askedName == 'Daniel'">
-      <prompt> Your name is Daniel Osakue. </prompt>
-    <else/>
-      <reprompt/>
-    </if>
-
-  </filled>
 
 </form>
 </vxml>
