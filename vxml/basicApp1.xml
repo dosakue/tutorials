@@ -1,6 +1,10 @@
-<?xml version="1.0" encoding="UTF-8">
-<vxml version="2.1" xmlns="http://ww.w3.org/2001/vxml"
-  xmlns:voxeo="http://community.voxeo.com/xmlns/vxml">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE vxml PUBLIC "-//W3C//DTD VOICEXML 2.1//EN"
+"http://www.w3.org/TR/2007/REC-voicexml21-20070619/vxml.dtd">
+<vxml version="2.1"
+  xmlns="http://www.w3.org/2001/vxml"
+  xmlns:voxeo="http://community.voxeo.com/xmlns/vxml"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
 <form id="mainMenu">
   <field name="askedName">
@@ -30,7 +34,7 @@
 
     <if cond = "askedName = 'Daniel'">
       <prompt> Your name is Daniel Osakue. </prompt>
-    <else>
+    <else/>
       <reprompt/>
     </if>
 
