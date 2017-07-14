@@ -32,7 +32,7 @@
 
   <filled name="responseName">
 
-    <if cond = "askedName = 'Daniel'">
+    <if cond = "askedName == 'Daniel'">
       <prompt> Your name is Daniel Osakue. </prompt>
     <else/>
       <reprompt/>
