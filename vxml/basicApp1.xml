@@ -18,17 +18,15 @@
       </rule>
     </grammar>
 
-    <noinput count="5">
+    <catch event="noinput" count="5">
       <prompt>I did not hear anything.</prompt>
       <reprompt/>
-    </noinput>
+    </catch>
 
-    <nomatch count="5">
-      <promopt>
-        Incorrect name.
-      </promopt>
+    <catch event="nomatch" count="5">
+      <promopt>Incorrect name.</promopt>
       <reprompt/>
-    </nomatch>
+    </catch>
 
   </field>
 
