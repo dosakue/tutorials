@@ -1,0 +1,15 @@
+{
+  "name": "dev-sandbox",
+  "version": "1.0.0",
+  "description": "dev sandbox for learning and experimentation ",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/dosakue/tutorials.git"
+  },
+  "author": "daniel o",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dosakue/tutorials/issues"
+  },
+  "homepage": "https://github.com/dosakue/tutorials#readme"
+}
