@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--  <!DOCTYPE vxml PUBLIC "-//W3C//DTD VOICEXML 2.1//EN" "http://www.w3.org/TR/2007/REC-voicexml21-20070619/vxml.dtd">  -->
-<vxml
-  xmlns="http://www.w3.org/2001/vxml"
-  version="2.1"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.w3.org/2001/vxml
-  http://www.w3.org/TR/2007/REC-voicexml21-20070619/vxml.xsd"
->
+<vxml xmlns="http://www.w3.org/2001/vxml"
+      version="2.1"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.w3.org/2001/vxml
+  http://www.w3.org/TR/2007/REC-voicexml21-20070619/vxml.xsd">
 
   <form id="mainMenu">
     <field name="askedName">
       <prompt>
         Please say your name.
       </prompt>
-      <grammar
-        xml:lang="en-us"
-        root="myrule"
-      >
+
+      <grammar xml:lang="en-us"
+               root="myrule">
         <rule id="myrule">
           <one-of>
             <item>
@@ -24,37 +21,74 @@
             </item>
           </one-of>
         </rule>
-        </grammar>
+      </grammar>
 
-        <catch
-          event="noinput"
-          count="5"
-        >
-          <prompt>I did not hear anything.</prompt>
+      <catch event="noinput"
+             count="5">
+        <prompt>I did not hear anything.</prompt>
+        <reprompt/>
+      </catch>
+
+      <catch event="nomatch"
+             count="5">
+        <promopt>Incorrect name.</promopt>
+        <reprompt/>
+      </catch>
+
+      <filled name="responseName">
+
+        <if cond="askedName == 'Daniel'">
+          <prompt>
+            Your name is Daniel Osakue.
+            <goto next="#confirm" />
+          </prompt>
+          <else/>
           <reprompt/>
-          </catch>
+        </if>
 
-          <catch
-            event="nomatch"
-            count="5"
-          >
-            <promopt>Incorrect name.</promopt>
-            <reprompt/>
-            </catch>
-
-            <filled name="responseName">
-
-              <if cond="askedName == 'Daniel'">
-                <prompt>
-                  Your name is Daniel Osakue.
-                </prompt>
-                <else/>
-                <reprompt/>
-              </if>
-
-            </filled>
+      </filled>
 
     </field>
 
   </form>
-  </vxml>
+
+  <form id="confirm">
+    <field name="confirmationResponse">
+      <prompt>
+        Was your name said?
+      </prompt>
+      <grammar xml:lang="en-us"
+               root="myrule">
+        <rule id="myrule">
+          <one-of>
+            <item> yes</item>
+            <item> no </item>
+          </one-of>
+        </rule>
+      </grammar>
+      <catch event="noinput"
+             count="5">
+        <prompt>I did not hear anything.</prompt>
+        <reprompt/>
+      </catch>
+
+      <catch event="nomatch"
+             count="5">
+        <promopt> Please say yes or no. </promopt>
+        <reprompt/>
+      </catch>
+      <filled name="confirmationHandler">
+
+        <if cond="confirmationResponse == 'yes' ">
+          <prompt>
+            thank you, and good bye.
+          </prompt>
+          <else/>
+          <goto next="mainMenu" />
+          <reprompt/>
+        </if>
+
+      </filled>
+    </field>
+  </form>
+</vxml>
