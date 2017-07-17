@@ -40,8 +40,8 @@
         <if cond="askedName == 'Daniel'">
           <prompt>
             Your name is Daniel Osakue.
-            <goto next="#confirm" />
           </prompt>
+          <goto next="#confirm" />
           <else/>
           <reprompt/>
         </if>
@@ -83,8 +83,9 @@
           <prompt>
             thank you, and good bye.
           </prompt>
+          <disconnect/>
           <else/>
-          <goto next="mainMenu" />
+          <goto next="#mainMenu" />
           <reprompt/>
         </if>
 
